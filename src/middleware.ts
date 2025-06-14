@@ -8,11 +8,11 @@ const UNAUTHENTICATED_ONLY_ROUTES = new Set([
   '/sign-up',
   '/forgot-password',
   '/reset-password',
-  '/'
 ]);
 
 const PROTECTED_ROUTES = new Set([
   "/profile",
+  "/admin-dashboard"
 ]);
 
 
@@ -28,10 +28,12 @@ export function middleware(request: NextRequest) {
 
   const isAuthenticated = !!sessionCookie;
 
-  if ((isUnauthOnly || isResetPasswordToken) && isAuthenticated) {
-    return NextResponse.redirect(new URL('/', request.url));
+  // Redirect authenticated users away from auth pages
+  if (isUnauthOnly && isAuthenticated) {
+    return NextResponse.redirect(new URL('/profile', request.url));
   }
 
+  // Redirect unauthenticated users to login for protected routes
   if (isProtected && !isAuthenticated) {
     return NextResponse.redirect(new URL('/login', request.url));
   }
@@ -49,6 +51,5 @@ export const config = {
     "/reset-password",
     "/reset-password/:token*",
     '/admin-dashboard',
-    '/',
   ],
 };
