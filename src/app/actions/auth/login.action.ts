@@ -4,7 +4,6 @@ import { ServerActionType } from "@/common/types/api";
 import { devLogger } from "@/common/utils/dev-logger";
 import { APIError } from "better-auth/api";
 import { headers } from "next/headers";
-import { redirect } from "next/navigation";
 
 
 
@@ -39,7 +38,10 @@ export default async function loginAction(
       },
     });
 
-    redirect(process.env.NEXT_PUBLIC_AUTH_REDIRECT!);
+    return {
+      status: "success",
+      message: "Logged in successfully!",
+    }
   } catch (error) {
     if (error instanceof APIError) {
       devLogger.error("API error during login", error);

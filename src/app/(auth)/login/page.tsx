@@ -36,8 +36,9 @@ export default function LoginPage() {
 
   useEffect(() => {
     if (state?.status === "success") {
-      toast.success(state.message || "Logged in successfully!");
       router.push(process.env.NEXT_PUBLIC_AUTH_REDIRECT!);
+      toast.success(state.message || "Logged in successfully!");
+      router.refresh();
     } else if (state?.status === "error") {
       if (state.error === "Email not verified.") {
         toast.error("We have sent you a verification email. Please check your inbox.");
