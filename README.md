@@ -1,36 +1,46 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🛍️ Single Vendor E-commerce: `OneStore`
+A full-stack **single-vendor e-commerce** platform with **admin and user roles**, built for internship submission.
 
-## Getting Started
+---
 
-First, run the development server:
+## ✨ Features
+### 🔐 Authentication
+- Email/password registration and login
+- Role-based access: **Admin** and **User**
+- Secure logout functionality
+### 👨‍💼 Admin Features
+- Admin Dashboard (protected)
+- Add / Edit / Delete products (image, price, stock, description)
+- View and manage all users
+- View all orders
+- Toggle product visibility
+### 🛒 User Features
+- Register / Login
+- Browse product catalog
+- View product details
+- Add to cart
+- View and manage cart
+- Simulated checkout flow
+- View past orders
+### 📩 Email Notifications
+- Welcome email on new registration
+- Order confirmation email on checkout
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+---
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 🛠️ Tech Stack
+- **Fullstack Framework:** [Next.js](https://nextjs.org/) (App Router, Server Actions)
+- **Styling:** [Tailwind CSS](https://tailwindcss.com/)
+- **Data Fetching:** [TanStack React Query](https://tanstack.com/query/latest), [Axios](https://axios-http.com/)
+- **Authentication:** [BetterAuth](https://www.better-auth.com/)
+- **Email Service:** [SendGrid](https://sendgrid.com/) + [React Email](https://react.email/)
+- **Database & ORM:** [PostgreSQL](https://www.postgresql.org/) + [Drizzle ORM](https://orm.drizzle.team/) + [Neon](https://neon.tech/)
+- **File Storage:** [UploadThing](https://uploadthing.com/)
+- **Notifications:** [React Hot Toast](https://react-hot-toast.com/)
+- **Utilities & Helpers:**
+  - [nanoid](https://zelark.github.io/nano-id-cc/) (Unique ID generation)
+  - [slugify](https://github.com/simov/slugify) (Create URL-friendly slugs)
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+---
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+> Built with ❤️ for internship evaluation.
