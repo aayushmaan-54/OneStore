@@ -8,7 +8,7 @@ import { userDataTable } from "@/drizzle/schema";
 
 export default async function isAdmin() {
   const session = await checkAuth();
-  if (!session) redirect("/login");
+  if (!session) return false;
 
   const userData = await db
     .select({
