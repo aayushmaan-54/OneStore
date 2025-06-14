@@ -29,7 +29,7 @@ export function middleware(request: NextRequest) {
   const isAuthenticated = !!sessionCookie;
 
   // Redirect authenticated users away from auth pages
-  if (isUnauthOnly && isAuthenticated) {
+  if ((isUnauthOnly || isResetPasswordToken) && isAuthenticated) {
     return NextResponse.redirect(new URL('/profile', request.url));
   }
 
