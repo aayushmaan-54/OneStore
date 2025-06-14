@@ -34,7 +34,7 @@ const EmailVerify = ({
               Verify Email
             </Button>
             <Text style={styles.paragraph}>
-              If the button above doesn't work, you can copy and paste the following link into your web browser:
+              If the button above doesn&apos;t work, you can copy and paste the following link into your web browser:
             </Text>
             <Text style={styles.link}>{verificationUrl}</Text>
           </Section>

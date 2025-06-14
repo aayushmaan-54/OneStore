@@ -1,4 +1,4 @@
-import { notFound, redirect } from "next/navigation";
+import { redirect } from "next/navigation";
 import checkAuth from "./check-auth";
 import db from "../lib/db";
 import { eq } from "drizzle-orm";

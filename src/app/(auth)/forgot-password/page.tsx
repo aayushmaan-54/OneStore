@@ -57,7 +57,7 @@ export default function ForgotPasswordPage() {
             </div>
             <CardTitle>Forgot your password?</CardTitle>
             <CardDescription>
-              No worries! Enter your email address and we'll send you an OTP to reset your password.
+              No worries! Enter your email address and we&apos;ll send you an OTP to reset your password.
             </CardDescription>
           </CardHeader>
 

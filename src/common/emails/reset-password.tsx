@@ -34,7 +34,7 @@ const ResetPassword = ({ email = 'user@example.com', resetUrl = '' }) => {
               Reset Password
             </Button>
             <Text style={styles.paragraph}>
-              If the button above doesn't work, you can copy and paste the following link into your web browser:
+              If the button above doesn&apos;t work, you can copy and paste the following link into your web browser:
             </Text>
             <Text style={styles.link}>{resetUrl}</Text>
           </Section>
