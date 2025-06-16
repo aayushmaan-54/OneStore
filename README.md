@@ -7,24 +7,21 @@ A full-stack **single-vendor e-commerce** platform with **admin and user roles**
 ### 🔐 Authentication
 - Email/password registration and login
 - Role-based access: **Admin** and **User**
-- Secure logout functionality
 ### 👨‍💼 Admin Features
 - Admin Dashboard (protected)
 - Add / Edit / Delete products (image, price, stock, description)
 - View and manage all users
 - View all orders
-- Toggle product visibility
 ### 🛒 User Features
 - Register / Login
 - Browse product catalog
 - View product details
 - Add to cart
 - View and manage cart
-- Simulated checkout flow
+- Secure payment processing with Razorpay
+- Order tracking and history
 - View past orders
 ### 📩 Email Notifications
-- Welcome email on new registration
-- Order confirmation email on checkout
 
 ---
 
@@ -36,10 +33,16 @@ A full-stack **single-vendor e-commerce** platform with **admin and user roles**
 - **Email Service:** [SendGrid](https://sendgrid.com/) + [React Email](https://react.email/)
 - **Database & ORM:** [PostgreSQL](https://www.postgresql.org/) + [Drizzle ORM](https://orm.drizzle.team/) + [Neon](https://neon.tech/)
 - **File Storage:** [UploadThing](https://uploadthing.com/)
+- **Payment Gateway:** [Razorpay](https://razorpay.com/)
 - **Notifications:** [React Hot Toast](https://react-hot-toast.com/)
 - **Utilities & Helpers:**
   - [nanoid](https://zelark.github.io/nano-id-cc/) (Unique ID generation)
   - [slugify](https://github.com/simov/slugify) (Create URL-friendly slugs)
+
+---
+
+## 💳 Payment Testing
+For testing payments, refer to [Razorpay Test Card Details](https://razorpay.com/docs/payments/payments/test-card-details/)
 
 ---
 

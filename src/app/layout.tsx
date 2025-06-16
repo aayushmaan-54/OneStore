@@ -5,6 +5,8 @@ import Header from "@/common/components/header";
 import { Space_Grotesk, Space_Mono } from 'next/font/google'
 import { ThemeProvider } from "@/common/provider/theme-provider";
 import Footer from "@/common/components/footer";
+import QueryProvider from "@/common/provider/query-provider";
+
 
 
 const spaceGrotesk = Space_Grotesk({
@@ -14,12 +16,14 @@ const spaceGrotesk = Space_Grotesk({
   display: 'swap',
 });
 
+
 const spaceMono = Space_Mono({
   subsets: ['latin'],
   variable: '--font-serif',
   weight: ['400', '700'],
   display: 'swap',
 });
+
 
 
 export const metadata: Metadata = {
@@ -77,8 +81,6 @@ export const metadata: Metadata = {
   ]
 };
 
-
-
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -90,19 +92,21 @@ export default function RootLayout({
         className={`bg-background text-foreground antialiased min-h-screen flex flex-col overflow-x-hidden
         ${spaceGrotesk.variable} ${spaceMono.variable}`}
       >
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="system"
-          enableSystem
-          disableTransitionOnChange
-        >
-          <Toaster position="bottom-center" />
-          <Header />
-          <main className="flex-1 w-full">
-            {children}
-          </main>
-          <Footer />
-        </ThemeProvider>
+        <QueryProvider>
+          <ThemeProvider
+            attribute="class"
+            defaultTheme="system"
+            enableSystem
+            disableTransitionOnChange
+          >
+            <Toaster position="bottom-center" />
+            <Header />
+            <main className="flex-1 w-full">
+              {children}
+            </main>
+            <Footer />
+          </ThemeProvider>
+        </QueryProvider>
       </body>
     </html>
   );

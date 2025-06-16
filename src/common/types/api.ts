@@ -1,7 +1,10 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
+
 export type ServerActionType = {
   status: "success" | "error";
   message?: string;
   error?: string;
+  data?: any;
 } | null;
 
 

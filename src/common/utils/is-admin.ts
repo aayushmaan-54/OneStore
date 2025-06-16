@@ -23,3 +23,25 @@ export default async function isAdmin() {
 
   return true;
 }
+
+
+
+export async function isUserAdmin(userId: string | null) {
+  if (!userId) {
+    return false;
+  }
+
+  const userData = await db
+    .select({
+      role: userDataTable.role,
+    })
+    .from(userDataTable)
+    .where(eq(userDataTable.userId, userId))
+    .limit(1);
+
+  if (!userData || userData.length === 0 || userData[0].role !== "admin") {
+    return false;
+  }
+
+  return true;
+}

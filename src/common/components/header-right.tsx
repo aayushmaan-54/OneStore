@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 "use client";
 import {
   Avatar,
@@ -20,12 +21,17 @@ import authClient from "../lib/auth-client";
 import toast from "react-hot-toast";
 import { useRouter } from "next/navigation";
 import getAvatarText from "../utils/get-avatar-text";
+import { ShoppingCartIcon } from "lucide-react";
+import { Badge } from "@/components/ui/badge";
+import { useCart } from "../hooks/use-cart";
+
 export type SessionType = Awaited<ReturnType<typeof auth.api.getSession>>;
 
 
 
 export default function HeaderRight({ session, isAdmin }: { session: SessionType, isAdmin: boolean }) {
   const [currentSession, setCurrentSession] = useState(session);
+  const { cartCount, isLoading: _loadingCart } = useCart();
   const router = useRouter();
 
 
@@ -50,13 +56,33 @@ export default function HeaderRight({ session, isAdmin }: { session: SessionType
     <div className="flex items-center gap-4">
       {currentSession && isAdmin &&
         <Button asChild variant="link">
-          <Link href='/admin-dashboard'>Admin Dashboard</Link>
+          <Link href='/admin/products'>Admin Dashboard</Link>
         </Button>
       }
 
+      {currentSession && (
+        <Button
+          variant="ghost"
+          size="icon"
+          className="relative"
+          asChild
+        >
+          <Link href="/cart">
+            <ShoppingCartIcon className="h-6 w-6" />
+            {cartCount > 0 && (
+              <Badge
+                variant="destructive"
+                className="absolute -top-2 -right-2 h-5 w-5 flex items-center justify-center p-0 rounded-full"
+              >
+                {cartCount}
+              </Badge>
+            )}
+          </Link>
+        </Button>
+      )}
+
       <ModeToggle />
 
-      {/* Simplified Avatar with Dropdown Menu */}
       {currentSession ? (
         <DropdownMenu>
           <DropdownMenuTrigger>
@@ -78,9 +104,17 @@ export default function HeaderRight({ session, isAdmin }: { session: SessionType
             <DropdownMenuItem>
               <Link href="/orders" className="w-full">Orders</Link>
             </DropdownMenuItem>
+            <DropdownMenuItem>
+              <Link href="/cart" className="w-full">Cart</Link>
+            </DropdownMenuItem>
+            {currentSession && isAdmin &&
+              <DropdownMenuItem>
+                <Link href="/admin/products" className="w-full">Admin Dashboard*</Link>
+              </DropdownMenuItem>
+            }
             <DropdownMenuSeparator />
             <DropdownMenuItem
-              onClick={() => handleLogout()}
+              onClick={handleLogout}
             >
               Logout
             </DropdownMenuItem>

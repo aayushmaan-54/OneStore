@@ -80,11 +80,11 @@ export const userDataTable = pgTable('user_data', {
 export const product = pgTable("product", {
   id: uuid('id').primaryKey().defaultRandom(),
   name: text('name').notNull(),
-  description: text('description'),
+  description: text('description').notNull(),
   price: decimal('price', { precision: 10, scale: 2 }).notNull(),
   stock: integer('stock').notNull().default(0),
-  image: text('image'),
-  isActive: boolean('is_active').notNull().default(true),
+  image: text('image').notNull(),
+  slug: text('slug').notNull().unique(),
   createdAt: timestamp('created_at').notNull().defaultNow(),
   updatedAt: timestamp('updated_at').notNull().defaultNow(),
 });

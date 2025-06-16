@@ -12,7 +12,11 @@ const UNAUTHENTICATED_ONLY_ROUTES = new Set([
 
 const PROTECTED_ROUTES = new Set([
   "/profile",
-  "/admin-dashboard"
+  '/admin/products',
+  '/admin/orders',
+  '/admin/users',
+  '/cart',
+  '/orders'
 ]);
 
 
@@ -48,6 +52,8 @@ export const config = {
     "/forgot-password",
     "/reset-password",
     "/reset-password/:token*",
-    '/admin-dashboard',
+    '/admin/products',
+    '/admin/orders',
+    '/admin/users'
   ],
 };
